@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c708hn4r3pyy7"]
+
+[ext_resource type="Texture2D" uid="uid://bhucqqsyckpu2" path="res://icon.svg" id="1_ig7tw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(210, 324)
+texture = ExtResource("1_ig7tw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(866, 325)
+texture = ExtResource("1_ig7tw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(641, 319)
+texture = ExtResource("1_ig7tw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(427, 321)
+texture = ExtResource("1_ig7tw")
