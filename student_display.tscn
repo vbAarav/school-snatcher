@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://mnxtlml2pfom"]
+
+[ext_resource type="Texture2D" uid="uid://bhucqqsyckpu2" path="res://icon.svg" id="1_7wsp6"]
+[ext_resource type="Script" uid="uid://bd4i8gnxd0uxw" path="res://student_display.gd" id="1_xnf23"]
+
+[node name="StudentDisplay" type="Node"]
+script = ExtResource("1_xnf23")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(210, 324)
+texture = ExtResource("1_7wsp6")
+
+[node name="Information" type="Label" parent="."]
+offset_left = 143.0
+offset_top = 215.0
+offset_right = 272.0
+offset_bottom = 253.0
+text = "1 is good"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="."]
+offset_left = 146.0
+offset_top = 400.0
+offset_right = 275.0
+offset_bottom = 438.0
+text = "1"
+horizontal_alignment = 1
