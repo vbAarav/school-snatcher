@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://mnxtlml2pfom"]
+[gd_scene load_steps=4 format=3 uid="uid://mnxtlml2pfom"]
 
 [ext_resource type="Texture2D" uid="uid://bhucqqsyckpu2" path="res://icon.svg" id="1_7wsp6"]
 [ext_resource type="Script" uid="uid://cf1v70xq5ut6s" path="res://Scripts/student.gd" id="1_tjbwp"]
 
-[node name="Student" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjbwp"]
+size = Vector2(128, 126)
+
+[node name="Student" type="Area2D"]
 script = ExtResource("1_tjbwp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_tjbwp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7wsp6")
@@ -24,3 +31,5 @@ offset_right = 66.0
 offset_bottom = 105.0
 text = "1"
 horizontal_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
