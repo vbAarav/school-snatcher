@@ -7,7 +7,7 @@ class_name Student
 @onready var NameLabel = $Name
 
 # Variables
-@export var display_name: String
+@export var display_name: String = ""
 var role: Role
 var alignment: Role.StudentAlignment
 

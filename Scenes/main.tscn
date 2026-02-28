@@ -7,21 +7,7 @@
 
 [node name="StudentsManager" type="Node" parent="."]
 script = ExtResource("1_bo1nx")
-
-[node name="Student" parent="StudentsManager" instance=ExtResource("2_8gbba")]
-position = Vector2(191, 316)
-display_name = "Harth"
-
-[node name="Student2" parent="StudentsManager" instance=ExtResource("2_8gbba")]
-position = Vector2(424, 316)
-display_name = "Doppa"
-
-[node name="Student3" parent="StudentsManager" instance=ExtResource("2_8gbba")]
-position = Vector2(660, 311)
-display_name = "Ramon"
-
-[node name="Student4" parent="StudentsManager" instance=ExtResource("2_8gbba")]
-position = Vector2(915, 325)
-display_name = "Tiest"
+student_scene = ExtResource("2_8gbba")
+student_names = Array[String](["Ramon", "Harth", "Doppa", "Tiest"])
 
 [node name="UILayer" type="CanvasLayer" parent="."]
