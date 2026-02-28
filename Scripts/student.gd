@@ -14,6 +14,9 @@ var is_selected = false
 
 func _ready():
 	set_display_name(display_name)
+	
+func _to_string() -> String:
+	return display_name + ": (" + str(role.name) + ")"
 
 func set_display_name(_display_name: String):
 	display_name = _display_name
