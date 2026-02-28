@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c708hn4r3pyy7"]
-
-[ext_resource type="PackedScene" uid="uid://mnxtlml2pfom" path="res://student_display.tscn" id="1_ig7tw"]
-
-[node name="Main" type="Node2D"]
-
-[node name="UILayer" type="CanvasLayer" parent="."]
-
-[node name="StudentDisplay" parent="." instance=ExtResource("1_ig7tw")]
