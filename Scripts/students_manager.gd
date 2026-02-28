@@ -1,6 +1,10 @@
 extends Node
 class_name StudentsManager
 
+# References
+@onready var Message = $"../UILayer/Label"
+
+# Variables
 @export var student_scene: PackedScene
 @export var student_names: Array[String]
 
@@ -24,3 +28,12 @@ func set_students_location():
 	for student in students:
 		student.position = Vector2(150 + x_offset, 300)
 		x_offset += 250
+
+func _on_button_pressed() -> void:
+	var selected_students: Array[Student] = []
+	for student in students:
+		if student.is_selected:
+			selected_students.append(student)
+			
+	Message.text = str(selected_students)
+	

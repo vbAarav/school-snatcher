@@ -7,15 +7,20 @@ class_name Student
 @onready var NameLabel = $Name
 
 # Variables
-@export var display_name: String = ""
+@export var display_name: String = ""		
 var role: Role
 var alignment: Role.StudentAlignment
-
 var is_selected = false
 
 func _ready():
+	set_display_name(display_name)
+
+func set_display_name(_display_name: String):
+	display_name = _display_name
 	NameLabel.text = display_name
-	InformationLabel.text = "1 is Good"
+	
+func set_current_information(_information: String):
+	InformationLabel.text = _information
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

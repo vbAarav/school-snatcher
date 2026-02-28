@@ -11,3 +11,21 @@ student_scene = ExtResource("2_8gbba")
 student_names = Array[String](["Ramon", "Harth", "Doppa", "Tiest"])
 
 [node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="UILayer"]
+offset_left = 474.0
+offset_top = 524.0
+offset_right = 562.0
+offset_bottom = 555.0
+scale = Vector2(2.269, 2)
+text = "   Submit   "
+
+[node name="Label" type="Label" parent="UILayer"]
+offset_left = 416.0
+offset_top = 16.0
+offset_right = 580.0
+offset_bottom = 39.0
+scale = Vector2(2, 2)
+text = "Who is the impostor?"
+
+[connection signal="pressed" from="UILayer/Button" to="StudentsManager" method="_on_button_pressed"]
