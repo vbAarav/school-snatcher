@@ -1,9 +1,16 @@
-extends Resource
+extends Node
 class_name Student
 
-@export var name: String
+# References
+@onready var Sprite = $Sprite2D
+@onready var InformationLabel = $Information
+@onready var NameLabel = $Name
+
+# Variables
+@export var display_name: String
 var role: Role
 var alignment: Role.StudentAlignment
 
-func _init(_name: String):
-	name = _name
+func _ready():
+	NameLabel.text = display_name
+	InformationLabel.text = "1 is Good"	
