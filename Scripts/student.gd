@@ -13,4 +13,4 @@ var alignment: Role.StudentAlignment
 
 func _ready():
 	NameLabel.text = display_name
-	InformationLabel.text = "1 is Good"	
+	InformationLabel.text = "1 is Good"
