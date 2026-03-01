@@ -8,7 +8,7 @@
 [node name="StudentsManager" type="Node" parent="."]
 script = ExtResource("1_bo1nx")
 student_scene = ExtResource("2_8gbba")
-student_names = Array[String](["Ramon", "Harth", "Doppa", "Tiest"])
+student_names = Array[String](["Ramon", "Harth", "Doppa", "Tiest", "Lydra"])
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
