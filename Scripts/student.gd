@@ -9,7 +9,7 @@ class_name Student
 # Variables
 @export var display_name: String = ""		
 var role: Role
-var alignment: Role.StudentAlignment
+var alignment:  Alignment.StudentAlignment
 var is_selected = false
 
 func _ready():

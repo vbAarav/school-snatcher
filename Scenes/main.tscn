@@ -27,5 +27,6 @@ offset_right = 580.0
 offset_bottom = 39.0
 scale = Vector2(2, 2)
 text = "Who is the impostor?"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="UILayer/Button" to="StudentsManager" method="_on_button_pressed"]

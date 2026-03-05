@@ -12,6 +12,7 @@ var students: Array[Student]
 
 func _ready():
 	setup_students()
+	setup_game()
 
 func setup_students():
 	# Create Student Nodes
@@ -54,21 +55,23 @@ func setup_students():
 			student.scale = Vector2(scale_factor, scale_factor)
 			student.position = Vector2(start_x + i * (student_width + spacing), viewport_height / 2.0)
 		
-	# Assign Student Roles
+		
+		
+func setup_game():
 	for student in students:
-		student.role = Role.new("Student", Role.StudentAlignment.GOOD)
+		student.role = Role.new("Student",  Alignment.StudentAlignment.GOOD)
 	var impostor = students[randi() % students.size()]
-	impostor.role = Role.new("Thief", Role.StudentAlignment.EVIL)
-	impostor.alignment = Role.StudentAlignment.EVIL
+	impostor.role = Role.new("Thief",  Alignment.StudentAlignment.EVIL)
+	impostor.alignment =  Alignment.StudentAlignment.EVIL
 	
 	# Set Information
 	for student: Student in students:
 		var others = students.filter(func(x): return x != student)
 		var target: Student = others[randi() % others.size()]
 		var target_alignment = target.alignment
-		if student.alignment == Role.StudentAlignment.EVIL:
-			target_alignment = Role.flip_alignment(target_alignment)
-		student.set_current_information(target.display_name + " is " + str(Role.StudentAlignment.find_key(target_alignment)))
+		if student.alignment ==  Alignment.StudentAlignment.EVIL:
+			target_alignment =  Alignment.flip_alignment(target_alignment)
+		student.set_current_information(target.display_name + " is " + str( Alignment.StudentAlignment.find_key(target_alignment)))
 	
 
 # On Signals
