@@ -1,14 +1,22 @@
 extends Resource
 class_name Statement
 
+enum StatementType {
+	ONE_ALIGNMENT,
+	BETWEEN_TWO_ALIGNMENT
+}
+
+var statement_type: StatementType
+
+func _init(_statement_type: StatementType = StatementType.ONE_ALIGNMENT):
+	statement_type = _statement_type
 
 func show_statement(student: Student, game: StudentsManager):
-	var statements = [
-		one_alignment,
-		between_two_alignment
-	]
-	
-	statements.pick_random().call(student, game)
+	match statement_type:
+		StatementType.ONE_ALIGNMENT:
+			one_alignment(student, game)
+		StatementType.BETWEEN_TWO_ALIGNMENT:
+			between_two_alignment(student, game)
 
 
 func one_alignment(student: Student, game: StudentsManager):
@@ -56,3 +64,9 @@ func between_two_alignment(student: Student, game: StudentsManager):
 	]
 	
 	student.set_current_information(statement)
+	
+func one_lying(_student, _game):
+	pass
+	
+func between_two_lying(_student, _game):
+	pass

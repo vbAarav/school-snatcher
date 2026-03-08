@@ -59,16 +59,38 @@ func setup_students():
 		
 		
 func setup_game():
-	for student in students:
-		student.role = Role.new("Student",  Alignment.StudentAlignment.GOOD)
-	var impostor = students[randi() % students.size()]
-	impostor.role = Role.new("Thief",  Alignment.StudentAlignment.EVIL)
-	impostor.alignment =  Alignment.StudentAlignment.EVIL
+	# Create roles with their statements
+	var statement_types = [
+		Statement.StatementType.ONE_ALIGNMENT,
+		Statement.StatementType.BETWEEN_TWO_ALIGNMENT
+	]
 	
-	# Set Information
+	# Assign roles to students
+	for student in students:
+		var statement_type = statement_types.pick_random()
+		var student_statement = Statement.new(statement_type)
+		student.role = Role.new("Student", Alignment.StudentAlignment.GOOD, student_statement)
+		student.alignment = Alignment.StudentAlignment.GOOD
+	
+	# Pick a random student to be the thief
+	var impostor = students[randi() % students.size()]
+	
+	# Collect all in-play role statements (excluding the thief's current role)
+	var inplay_statement_types = []
+	for student in students:
+		if student != impostor and student.role.statement:
+			inplay_statement_types.append(student.role.statement.statement_type)
+	
+	# Thief bluffs as one of the in-play roles
+	var bluff_statement_type = inplay_statement_types.pick_random() if not inplay_statement_types.is_empty() else statement_types.pick_random()
+	var thief_statement = Statement.new(bluff_statement_type)
+	impostor.role = Role.new("Thief", Alignment.StudentAlignment.EVIL, thief_statement)
+	impostor.alignment = Alignment.StudentAlignment.EVIL
+	
+	# Show statements for all students
 	for student: Student in students:
-		var s = Statement.new()
-		s.show_statement(student, self)
+		if student.role.statement:
+			student.role.statement.show_statement(student, self)
 	
 
 # On Signals
