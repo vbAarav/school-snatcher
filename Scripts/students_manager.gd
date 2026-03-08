@@ -7,6 +7,7 @@ class_name StudentsManager
 # Variables
 @export var student_scene: PackedScene
 @export var student_names: Array[String]
+@export var num_impostors: int = 1
 
 var students: Array[Student]
 
@@ -66,12 +67,8 @@ func setup_game():
 	
 	# Set Information
 	for student: Student in students:
-		var others = students.filter(func(x): return x != student)
-		var target: Student = others[randi() % others.size()]
-		var target_alignment = target.alignment
-		if student.alignment ==  Alignment.StudentAlignment.EVIL:
-			target_alignment =  Alignment.flip_alignment(target_alignment)
-		student.set_current_information(target.display_name + " is " + str( Alignment.StudentAlignment.find_key(target_alignment)))
+		var s = Statement.new()
+		s.show_statement(student, self)
 	
 
 # On Signals
